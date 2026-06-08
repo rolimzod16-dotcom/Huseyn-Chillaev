@@ -1,0 +1,21 @@
+# Render Blueprint configuration for the Vite React static site
+# This makes deployment settings explicit and reproducible.
+# Primary deployment type: Static Site (recommended for pure frontend SPAs)
+
+services:
+  - type: static_site
+    name: huseyn-chillaev-portfolio
+    env: static
+    # Build the production assets
+    buildCommand: npm run build
+    # The directory containing the built static files (index.html + assets/)
+    staticPublishPath: ./dist
+    # Optional: auto deploy on push (default true when connected via Git)
+    # autoDeploy: true
+    # Health check not needed for static
+
+# Alternative: If you must use Web Service (not recommended for this project),
+# you can change type to 'web_service', remove staticPublishPath,
+# and set startCommand: 'npm start'
+# Then the 'start' script in package.json will serve the dist folder on $PORT.
+# However, Static Site is preferred: better performance, free bandwidth, CDN, no runtime cost.
