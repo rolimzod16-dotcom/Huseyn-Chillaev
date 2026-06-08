@@ -1,47 +1,73 @@
-# Хусейн Чиллаев — Нарисованная от руки анимация и комиксы
+# React + TypeScript + Vite
 
-Официальный персональный сайт независимого 2D-аниматора и художника комиксов Хусейна Чиллаева.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Живой сайт-скетчбук с нарисованной от руки анимацией и комиксами.
+Currently, two official plugins are available:
 
-## Правила дизайна (строго соблюдаются)
-- Чисто белый фон
-- Толстые чёрные нарисованные от руки контуры
-- Плоские 2D-иллюстрации только с помощью SVG
-- Компоновка в стиле комикс-панелей на всём сайте
-- Детский, но профессиональный тон
-- Минимальная палитра: только чёрный + белый + светло-бирюзовые акценты
-- Ощущение скетчбука и рисунка от руки
-- Без неона, стекла, футуризма и SaaS-эстетики
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## Разделы
-- Главная (с большой живой маскот-фигурой и парящими каракулями)
-- Обо мне (временная шкала в стиле комикса + иллюстрированное вступление)
-- Проекты (4 проекта с кастомными SVG-обложками + модальные окна с деталями)
-- Комиксы (3 комикса + интерактивный постраничный читатель)
-- Видео (встроенные анимации в нарисованных от руки рамках)
-- Поддержка (чистые варианты поддержки)
-- Контакты
+## React Compiler
 
-## Технологии
-- React + TypeScript + Vite
-- Tailwind + Framer Motion (игривые пружинистые анимации)
-- Все иллюстрации — кастомные SVG (фигура мультипликатора, обложки сцен, каракули и т.д.)
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Запуск
+## Expanding the ESLint configuration
 
-```bash
-npm install
-npm run dev
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
+
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
 ```
 
-Откройте в браузере. Всё самодостаточно, с нарисованными от руки SVG-персонажами в каждом разделе.
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-## Настройка
-- Всё содержимое: `src/data.ts` (замените плейсхолдеры реальными работами)
-- Главная иллюстрация: `src/components/CartoonFigure.tsx`
-- SVG для обложек и иллюстраций встроены прямо в файлы разделов
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-Дизайн создан как нарисованный от руки персональный сайт в стиле комикса для ХУСЕЙНА ЧИЛЛАЕВА.
-
-Все названия проектов, комиксов и плейсхолдеры заменены на реальные работы.
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```

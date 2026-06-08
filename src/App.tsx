@@ -1,69 +1,31 @@
-import { useEffect, useState } from 'react';
-import { Navbar } from './components/Navbar';
-import { Home } from './sections/Home';
-import { About } from './sections/About';
-import { Projects } from './sections/Projects';
-import { Comics } from './sections/Comics';
-import { Gallery } from './sections/Gallery';
-import { Videos } from './sections/Videos';
-import { Donations } from './sections/Donations';
-import { Contact } from './sections/Contact';
-import { AnimatePresence, motion } from 'framer-motion';
+import { Routes, Route } from 'react-router-dom'
+import { Layout } from './components/Layout'
+import { Home } from './pages/Home'
+import { About } from './pages/About'
+import { Projects } from './pages/Projects'
+import { Comics } from './pages/Comics'
+import { Gallery } from './pages/Gallery'
+import { Videos } from './pages/Videos'
+import { ForClients } from './pages/ForClients'
+import { Support } from './pages/Support'
+import { Contact } from './pages/Contact'
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  // Simple hand-drawn cartoon loading screen
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1100);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
-    <div className="min-h-screen bg-white text-[#111111] overflow-x-hidden font-['Comic_Neue',system-ui,sans-serif]">
-      {/* Hand-drawn style loading screen */}
-      <AnimatePresence>
-        {isLoading && (
-          <div className="fixed inset-0 bg-white z-[9999] flex items-center justify-center">
-            <div className="text-center">
-              <div className="comic-panel mx-auto w-60 h-24 flex items-center justify-center mb-4 border-[3px] border-[#111111]">
-                <div>
-                  <div className="comic-title text-[#111111] text-4xl tracking-[-1.5px]">Хусейн Чиллаев</div>
-                  <div className="text-[10px] text-[#14b8a6] tracking-[2px] -mt-1">РИСУЮ МИР...</div>
-                </div>
-              </div>
-              {/* Sketchy loading dots */}
-              <div className="flex justify-center gap-2.5">
-                {[0,1,2].map(i => (
-                  <motion.div 
-                    key={i} 
-                    className="w-2.5 h-2.5 border-2 border-[#111111] rounded-full" 
-                    animate={{ scale: [1, 1.3, 1] }}
-                    transition={{ duration: 0.9, repeat: Infinity, delay: i * 0.15 }}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
-      </AnimatePresence>
-
-      <Navbar />
-
-      <main>
-        <Home />
-        <About />
-        <Projects />
-        <Comics />
-        <Gallery />
-        <Videos />
-        <Donations />
-        <Contact />
-      </main>
-    </div>
-  );
+    <Layout>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/comics" element={<Comics />} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/videos" element={<Videos />} />
+        <Route path="/clients" element={<ForClients />} />
+        <Route path="/support" element={<Support />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </Layout>
+  )
 }
 
-export default App;
+export default App

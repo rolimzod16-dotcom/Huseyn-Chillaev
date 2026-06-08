@@ -1,150 +1,175 @@
-import { Project, Comic, GalleryItem, Video, TimelineEvent } from './types';
+// Editable placeholder content for Хусейн Чиллаев website
+// All real projects and descriptions should be replaced by the owner.
 
+export interface Project {
+  id: number
+  title: string
+  description: string
+  year: string
+  category: string
+  tags: string[]
+}
+
+export interface Comic {
+  id: number
+  title: string
+  description: string
+  year: string
+  panels: number
+  category: string
+}
+
+export interface GalleryItem {
+  id: number
+  caption: string
+  type: string
+}
+
+export interface VideoItem {
+  id: number
+  title: string
+  description: string
+  year: string
+  youtubeId?: string // optional real embed id if known
+  link: string
+}
+
+// PROJECTS — placeholders
 export const projects: Project[] = [
   {
     id: 1,
-    title: "Лесной шёпот",
-    description: "Короткометражный анимационный фильм о девочке, которая слышит голоса деревьев.",
-    longDescription: "Нарисованный от руки короткометражный фильм, где маленькая девочка по имени Аня открывает, что старые деревья в лесу у её дома умеют шептать истории. Каждый кадр создан тушью и пером на бумаге, с последующей покадровой съёмкой. Фильм участвовал в международных фестивалях анимации и получил специальный приз жюри за художественное решение.",
-    cover: "project1",
-    year: 2023,
-    duration: "7 мин",
-    role: "Сценарист • Режиссёр • Аниматор",
-    tags: ["Короткометражный фильм", "2D-анимация", "Нарисовано от руки"],
+    title: "[НАЗВАНИЕ ПРОЕКТА]",
+    description: "[ОПИСАНИЕ]",
+    year: "2024",
+    category: "Короткометражный",
+    tags: ["Короткометражный", "Детство"],
   },
   {
     id: 2,
-    title: "Кот и луна",
-    description: "Анимационный сериал о ночных приключениях рыжего кота по имени Мур.",
-    longDescription: "Нежный анимационный сериал из шести коротких историй о коте Муре, который каждую ночь отправляется в путешествия по крышам города вместе со своим другом — говорящей луной. Все серии нарисованы вручную тушью, без цифровой раскраски. Сериал создан для семейного просмотра и рассказывает о дружбе, храбрости и умении замечать волшебство в обычном.",
-    cover: "project2",
-    year: 2022,
-    duration: "6 × 4 мин",
-    role: "Автор • Аниматор",
-    tags: ["Сериал", "Анимация", "Семейное"],
+    title: "[НАЗВАНИЕ ПРОЕКТА]",
+    description: "[ОПИСАНИЕ]",
+    year: "2023",
+    category: "Короткометражный",
+    tags: ["Короткометражный"],
   },
   {
     id: 3,
-    title: "Маленькие радости",
-    description: "Коллекция из тридцати микро-анимаций о повседневных счастливых моментах.",
-    longDescription: "Годовой проект ежедневных коротких анимаций. Каждый день я рисовал один маленький момент, который принёс радость: первый снег, чашка горячего чая, котёнок на подоконнике, старый велосипед. Всего тридцать пять циклов и крошечных историй, нарисованных пером и тушью в скетчбуке. Многие из них стали основой для будущих больших работ.",
-    cover: "project3",
-    year: 2021,
-    duration: "35 циклов",
-    role: "Аниматор",
-    tags: ["Личное", "Циклы", "Скетчбук"],
+    title: "[НАЗВАНИЕ ПРОЕКТА]",
+    description: "[ОПИСАНИЕ]",
+    year: "2024",
+    category: "Клип",
+    tags: ["Клип", "Музыка"],
   },
   {
     id: 4,
-    title: "Письма бабушке",
-    description: "Личный короткометражный фильм о памяти, детстве и прощании.",
-    longDescription: "Анимационная история о мальчике, который пишет письма своей бабушке, живущей далеко. Через рисунки и голос за кадром раскрывается тема памяти, семейных историй и того, как мы храним близких внутри себя. Фильм полностью создан традиционной техникой: каждый кадр нарисован на бумаге, отсканирован и собран в монтаж. Премьера состоялась на фестивале «Аниматор» в 2024 году.",
-    cover: "project4",
-    year: 2024,
-    duration: "9 мин",
-    role: "Режиссёр • Аниматор",
-    tags: ["Короткометражный фильм", "Драма", "Фестиваль"],
+    title: "[НАЗВАНИЕ ПРОЕКТА]",
+    description: "[ОПИСАНИЕ]",
+    year: "2022",
+    category: "Короткометражный",
+    tags: ["Короткометражный", "Юмор"],
   },
-];
+  {
+    id: 5,
+    title: "[НАЗВАНИЕ ПРОЕКТА]",
+    description: "[ОПИСАНИЕ]",
+    year: "2025",
+    category: "Сериал",
+    tags: ["Сериал"],
+  },
+  {
+    id: 6,
+    title: "[НАЗВАНИЕ ПРОЕКТА]",
+    description: "[ОПИСАНИЕ]",
+    year: "2023",
+    category: "Клип",
+    tags: ["Клип"],
+  },
+]
 
+// COMICS — placeholders
 export const comics: Comic[] = [
   {
     id: 1,
-    title: "Путешествие семени",
-    subtitle: "Приключение в шести панелях",
-    description: "История крошечного семени, которое отправляется в большое путешествие по ветру, чтобы найти свой дом.",
-    pages: 6,
-    cover: "comic1",
-    year: 2023,
-    pagesContent: [
-      { panel: 1, caption: "Однажды ветер сорвал меня с ветки старого клёна...", dialogue: "Куда я лечу?" },
-      { panel: 2, caption: "Я летел над рекой, полями и крышами домов.", dialogue: "Какой огромный мир!" },
-      { panel: 3, dialogue: "Ой! Кажется, я упал в сад." },
-      { panel: 4, caption: "Тёмная тёплая земля приняла меня.", dialogue: "Здесь безопасно." },
-      { panel: 5, dialogue: "Я буду расти. Я стану большим деревом." },
-      { panel: 6, caption: "А пока — просто подожду весны.", dialogue: "Сладких снов, мир." },
-    ],
+    title: "[КОМИКС]",
+    description: "[ОПИСАНИЕ]",
+    year: "2024",
+    panels: 6,
+    category: "Мини-комикс",
   },
   {
     id: 2,
-    title: "Друг в облаке",
-    subtitle: "Тихая история о дружбе",
-    description: "Маленький мальчик находит друга, который живёт в облаке. Они вместе смотрят на звёзды и делятся мечтами.",
-    pages: 8,
-    cover: "comic2",
-    year: 2022,
-    pagesContent: [
-      { panel: 1, caption: "Каждый вечер я сижу на крыше и смотрю в небо." },
-      { panel: 2, dialogue: "Привет... ты опять здесь?" },
-      { panel: 3, caption: "Облако опустилось ниже, чем обычно." },
-      { panel: 4, dialogue: "Сегодня я принёс тебе звезду." },
-      { panel: 5, caption: "Мы не говорили. Просто сидели рядом." },
-      { panel: 6, dialogue: "Ты грустишь?" },
-      { panel: 7, caption: "Иногда облака тоже чувствуют себя одинокими." },
-      { panel: 8, caption: "Но теперь у нас есть друг.", dialogue: "До завтра, облачко." },
-    ],
+    title: "[КОМИКС]",
+    description: "[ОПИСАНИЕ]",
+    year: "2023",
+    panels: 4,
+    category: "Мини-комикс",
   },
   {
     id: 3,
-    title: "Кисть и я",
-    subtitle: "Разговор художника со своими рисунками",
-    description: "Короткая история о том, как персонажи, нарисованные на бумаге, начинают жить своей жизнью и разговаривать со своим создателем.",
-    pages: 5,
-    cover: "comic3",
-    year: 2024,
-    pagesContent: [
-      { panel: 1, caption: "Каждое утро я сажусь за стол с кистью и чистым листом.", dialogue: "Кого я сегодня нарисую?" },
-      { panel: 2, dialogue: "Нарисуй меня с крыльями! Я хочу летать." },
-      { panel: 3, caption: "Мои герои всегда просят невозможного." },
-      { panel: 4, dialogue: "Но ты же можешь. Ты рисуешь миры." },
-      { panel: 5, caption: "И каждый день мы начинаем заново.", dialogue: "Спасибо, что даёшь нам жизнь." },
-    ],
+    title: "[КОМИКС]",
+    description: "[ОПИСАНИЕ]",
+    year: "2024",
+    panels: 8,
+    category: "История",
   },
-];
+  {
+    id: 4,
+    title: "[КОМИКС]",
+    description: "[ОПИСАНИЕ]",
+    year: "2022",
+    panels: 5,
+    category: "Мини-комикс",
+  },
+  {
+    id: 5,
+    title: "[КОМИКС]",
+    description: "[ОПИСАНИЕ]",
+    year: "2025",
+    panels: 12,
+    category: "История",
+  },
+]
 
+// GALLERY — all hand-drawn SVGs will be used, captions are placeholders
 export const galleryItems: GalleryItem[] = [
-  { id: 1, title: "Набросок Ани", medium: "Чернила и карандаш", year: 2024, description: "Ранний эскиз главной героини «Лесного шёпота»", category: "Персонаж" },
-  { id: 2, title: "Старый лес", medium: "Тушь + бумага", year: 2022, description: "Фон для сцены встречи с деревьями", category: "Окружение" },
-  { id: 3, title: "Ночной город", medium: "Карандаш и тушь", year: 2023, description: "Крыши для «Кот и луна»", category: "Окружение" },
-  { id: 4, title: "Рыжий Мур", medium: "Кисть и чернила", year: 2023, description: "Финальный дизайн кота из сериала", category: "Персонаж" },
-  { id: 5, title: "Семя в полёте", medium: "Цветной карандаш", year: 2022, description: "Ключевая иллюстрация из комикса «Путешествие семени»", category: "Иллюстрация" },
-  { id: 6, title: "Чашка чая", medium: "Микронная ручка", year: 2021, description: "Один из ежедневных скетчей «Маленькие радости»", category: "Набросок" },
-  { id: 7, title: "Автопортрет в шляпе", medium: "Чернила на бумаге", year: 2023, description: "Шуточный автопортрет для фестиваля", category: "Персонаж" },
-  { id: 8, title: "Бабушкин сад", medium: "Уголь", year: 2024, description: "Ранний концепт-декорация к «Письмам бабушке»", category: "Концепт" },
-];
+  { id: 1, caption: "Кадр из [НАЗВАНИЕ ПРОЕКТА]", type: "кадр" },
+  { id: 2, caption: "Эскиз персонажа", type: "скетч" },
+  { id: 3, caption: "Кадр из [КОМИКС]", type: "комикс" },
+  { id: 4, caption: "Фоновая иллюстрация", type: "иллюстрация" },
+  { id: 5, caption: "Кадр из [ВИДЕО]", type: "кадр" },
+  { id: 6, caption: "Персонаж [НАЗВАНИЕ ПРОЕКТА]", type: "персонаж" },
+  { id: 7, caption: "Кадр из [НАЗВАНИЕ ПРОЕКТА]", type: "кадр" },
+  { id: 8, caption: "Миниатюра [КОМИКС]", type: "комикс" },
+]
 
-export const videos: Video[] = [
+// VIDEOS — use real channel link + placeholders. One embed example allowed if known
+export const videos: VideoItem[] = [
   {
     id: 1,
-    title: "Лесной шёпот — Фрагмент",
-    description: "Короткий взгляд на процесс создания нарисованного от руки фильма и атмосферу леса.",
-    youtubeId: "3JZ_2tFI7to",
-    duration: "1:12",
-    year: 2023,
+    title: "[НАЗВАНИЕ ВИДЕО]",
+    description: "[ОПИСАНИЕ]",
+    year: "2024",
+    link: "https://www.youtube.com/@Huseyn.Chillaev",
   },
   {
     id: 2,
-    title: "Кот и луна — Первая ночь",
-    description: "Первая серия сериала. Мур знакомится с луной и отправляется в первое ночное приключение.",
-    youtubeId: "dQw4w9wgccc",
-    duration: "4:18",
-    year: 2022,
+    title: "[НАЗВАНИЕ ВИДЕО]",
+    description: "[ОПИСАНИЕ]",
+    year: "2023",
+    link: "https://www.youtube.com/@Huseyn.Chillaev",
   },
   {
     id: 3,
-    title: "Как я рисую короткую анимацию",
-    description: "Пошаговый показ процесса: от первого наброска в скетчбуке до готового покадрового фильма.",
-    youtubeId: "3JZ_2tFI7to",
-    duration: "8:44",
-    year: 2021,
+    title: "[НАЗВАНИЕ ВИДЕО]",
+    description: "[ОПИСАНИЕ]",
+    year: "2025",
+    link: "https://www.youtube.com/@Huseyn.Chillaev",
   },
-];
-
-export const timeline: TimelineEvent[] = [
-  { year: "2016", title: "Первые эксперименты с анимацией", description: "Создал первые анимации в блокноте и короткие тесты, нарисованные от руки.", reaction: "excited" },
-  { year: "2018", title: "Первый публичный показ", description: "Короткая анимация была отобрана для местного показа анимации.", reaction: "surprised" },
-  { year: "2020", title: "Полная занятость в анимации", description: "Начал создавать анимационные работы на постоянной основе.", reaction: "happy" },
-  { year: "2021", title: "Проект ежедневной анимации", description: "Завершил год ежедневных нарисованных от руки анимационных набросков и циклов.", reaction: "thinking" },
-  { year: "2023", title: "Лесной шёпот", description: "Выпустил первый большой нарисованный от руки короткометражный фильм.", reaction: "excited" },
-  { year: "2024", title: "Продолжаю творить", description: "Новые анимации, комиксы и наброски в разработке.", reaction: "happy" },
-];
+  {
+    id: 4,
+    title: "[НАЗВАНИЕ ВИДЕО]",
+    description: "[ОПИСАНИЕ]",
+    year: "2022",
+    link: "https://www.youtube.com/@Huseyn.Chillaev",
+  },
+]
